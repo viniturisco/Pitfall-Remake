@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cc4exdd80vopa"]
 
-[ext_resource type="Script" uid="uid://douwog8354v6e" path="res://tronco.gd" id="1_1m3km"]
+[ext_resource type="Script" uid="uid://douwog8354v6e" path="res://scenes/fase/tronco.gd" id="1_1m3km"]
 [ext_resource type="Texture2D" uid="uid://uteyan00l4m3" path="res://assets/enemies/tronco.png" id="2_6koyo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_quefl"]
