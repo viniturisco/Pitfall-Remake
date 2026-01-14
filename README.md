@@ -4,6 +4,10 @@ Welcome to the first official release of our remake of the classic **Pitfall!**.
 
 This project was developed by students of the Bachelor's Degree in Computer Science at the Instituto Federal de São Paulo (IFSP), Salto Campus, for the Digital Entertainment course.
 
+## ⬇️ How to download the game?
+
+You can download and play this remake on the releases section!
+
 ## 🌴 About the Game
 
 **Pitfall!** follows the adventures of **Harry Pitfall**, a fearless explorer seeking long-forgotten treasures in a treacherous tropical jungle.
