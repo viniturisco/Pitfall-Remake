@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://cc4exdd80vopa"]
+
+[ext_resource type="Script" uid="uid://douwog8354v6e" path="res://tronco.gd" id="1_1m3km"]
+[ext_resource type="Texture2D" uid="uid://uteyan00l4m3" path="res://assets/enemies/tronco.png" id="2_6koyo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quefl"]
+atlas = ExtResource("2_6koyo")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhgpn"]
+atlas = ExtResource("2_6koyo")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpttx"]
+atlas = ExtResource("2_6koyo")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrrs1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quefl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhgpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpttx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtpjc"]
+size = Vector2(25, 71)
+
+[node name="Tronco" type="Area2D"]
+z_index = 5
+scale = Vector2(0.5999994, 0.5999994)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_1m3km")
+pontos_perdidos = 50
+
+[node name="AnimacaoTronco" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(16.666683, 1.6666746)
+scale = Vector2(1.1333312, 1.1333312)
+sprite_frames = SubResource("SpriteFrames_yrrs1")
+
+[node name="ColisaoTronco" type="CollisionShape2D" parent="."]
+z_index = 5
+position = Vector2(7.666683, -3.3333254)
+scale = Vector2(1.1333312, 1.1333312)
+shape = SubResource("RectangleShape2D_wtpjc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

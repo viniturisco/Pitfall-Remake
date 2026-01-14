@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=3 uid="uid://b628dm2xojnmy"]
+
+[ext_resource type="Texture2D" uid="uid://chox5etsvtnqv" path="res://assets/title_screen/title_screen.png" id="1_ur665"]
+[ext_resource type="Script" uid="uid://c3b4j1j7afue4" path="res://scenes/credits/control.gd" id="1_vymbm"]
+[ext_resource type="FontFile" uid="uid://djaieaje5xy0v" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="2_vymbm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bkru"]
+bg_color = Color(0.36, 0.18456002, 0.050399996, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.2048212, 0.09811353, 0.022830449, 0.6)
+shadow_size = 3
+shadow_offset = Vector2(0, 1.42)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbjxr"]
+bg_color = Color(0.23, 0.11791334, 0.032199997, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.2048212, 0.09811353, 0.022830449, 0.6)
+shadow_size = 3
+shadow_offset = Vector2(0, 1.42)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p03vg"]
+bg_color = Color(0.31, 0.15892668, 0.043399997, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.2048212, 0.09811353, 0.022830449, 0.6)
+shadow_size = 3
+shadow_offset = Vector2(0, 1.42)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_exj1x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cg5ga"]
+bg_color = Color(0.35037798, 0.15892875, 0.07835578, 0.4509804)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vymbm")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_ur665")
+expand_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.125
+offset_top = 125.0
+offset_right = 223.125
+offset_bottom = 186.73596
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="go_back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.73333335, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8000001, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85800004, 0.29000002, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.85800004, 0.29000002, 1)
+theme_override_fonts/font = ExtResource("2_vymbm")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_6bkru")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lbjxr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p03vg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_exj1x")
+text = "GO BACK"
+autowrap_trim_flags = 0
+
+[node name="quit_game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.73333335, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8000001, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85800004, 0.29000002, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.85800004, 0.29000002, 1)
+theme_override_fonts/font = ExtResource("2_vymbm")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_6bkru")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lbjxr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p03vg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_exj1x")
+text = "QUIT GAME"
+autowrap_trim_flags = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.5
+offset_top = -102.5
+offset_right = 300.5
+offset_bottom = 102.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vymbm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cg5ga")
+text = "A game made by:
+Arthur Almeida
+Bruno Santos
+Henrique Bignardi
+Vinicius Turisco
+This game is a 'Pitfall!' remake, created by students of the Bachelor's Degree in Computer Science at Instituto Federal de São Paulo (IFSP), Salto Campus. This project was developed for the Digital Entertainment course."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="VBoxContainer/go_back" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit_game" to="." method="_on_quit_game_pressed"]

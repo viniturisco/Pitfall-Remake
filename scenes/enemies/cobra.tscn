@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://c0efrofx4v1jo"]
+
+[ext_resource type="Script" uid="uid://dof2bjcfktusu" path="res://scenes/enemies/cobra.gd" id="1_io408"]
+[ext_resource type="Texture2D" uid="uid://w48nc26rinkc" path="res://assets/enemies/cobra.png" id="2_i72v1"]
+[ext_resource type="Script" uid="uid://bwsm8jadichi7" path="res://scenes/enemies/area_dano_cobra.gd" id="3_i72v1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f2d8"]
+atlas = ExtResource("2_i72v1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2sl2"]
+atlas = ExtResource("2_i72v1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdnmp"]
+atlas = ExtResource("2_i72v1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlhnt"]
+atlas = ExtResource("2_i72v1")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3jpc"]
+atlas = ExtResource("2_i72v1")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y68gt"]
+atlas = ExtResource("2_i72v1")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kr0yu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f2d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2sl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdnmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlhnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3jpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y68gt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vwsv"]
+size = Vector2(59.38462, 59.38462)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_io408"]
+size = Vector2(59.38462, 59.38462)
+
+[node name="Cobra" type="CharacterBody2D"]
+scale = Vector2(1.3787439, 1.3787439)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_io408")
+
+[node name="AnimacaoCobra" type="AnimatedSprite2D" parent="."]
+position = Vector2(26.500004, 23.500006)
+scale = Vector2(0.7734376, 0.7734376)
+sprite_frames = SubResource("SpriteFrames_kr0yu")
+
+[node name="ColisaoCobra" type="CollisionShape2D" parent="."]
+position = Vector2(15.559999, 15.559999)
+scale = Vector2(0.52, 0.52)
+shape = SubResource("RectangleShape2D_5vwsv")
+
+[node name="AreaDanoCobra" type="Area2D" parent="."]
+position = Vector2(10, 10)
+scale = Vector2(0.52, 0.52)
+collision_layer = 0
+collision_mask = 7
+script = ExtResource("3_i72v1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDanoCobra"]
+position = Vector2(10.6923065, 10.6923065)
+shape = SubResource("RectangleShape2D_io408")
+
+[connection signal="body_entered" from="AreaDanoCobra" to="AreaDanoCobra" method="_on_body_entered"]

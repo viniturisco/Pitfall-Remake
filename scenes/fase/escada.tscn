@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://c61el8k7ayj73"]
+
+[ext_resource type="Script" uid="uid://cig0vtgarqmh8" path="res://scenes/fase/escada.gd" id="1_5hwvi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d8ok"]
+size = Vector2(23, 168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hwvi"]
+size = Vector2(40, 8)
+
+[node name="Escada" type="Area2D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_5hwvi")
+
+[node name="ColisaoEscada" type="CollisionShape2D" parent="."]
+position = Vector2(19.5, 79)
+shape = SubResource("RectangleShape2D_8d8ok")
+
+[node name="BarreiraEscada" type="Area2D" parent="."]
+position = Vector2(19, -33)
+collision_layer = 7
+collision_mask = 7
+
+[node name="ColisaoBarreiraEscada" type="CollisionShape2D" parent="BarreiraEscada"]
+position = Vector2(0, -27)
+shape = SubResource("RectangleShape2D_5hwvi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="BarreiraEscada" to="." method="_on_barreira_escada_body_entered"]
+[connection signal="body_exited" from="BarreiraEscada" to="." method="_on_barreira_escada_body_exited"]

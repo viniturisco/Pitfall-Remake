@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlqpanpv3v856"]
+
+[ext_resource type="AudioStream" uid="uid://n64g5it7tb6m" path="res://audios/botao.mp3" id="1_w6vud"]
+[ext_resource type="Script" uid="uid://b4ncau5juijh7" path="res://scenes/audio_global.gd" id="1_yhcj0"]
+[ext_resource type="AudioStream" uid="uid://3x7aobdr0fi7" path="res://audios/title-music.mp3" id="3_f0r2n"]
+
+[node name="AudioGlobal" type="Node"]
+script = ExtResource("1_yhcj0")
+
+[node name="SFX_botao" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_w6vud")
+volume_db = 6.679
+
+[node name="MusicaMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f0r2n")
+autoplay = true

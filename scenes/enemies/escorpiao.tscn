@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://cmpals2uixr2e"]
+
+[ext_resource type="Script" uid="uid://r2kjhhpil025" path="res://assets/enemies/escorpiao.gd" id="1_5xk86"]
+[ext_resource type="Script" uid="uid://bluoc2glfl1xq" path="res://scenes/enemies/area_dano.gd" id="2_iivvu"]
+[ext_resource type="Texture2D" uid="uid://bld6tbq8jhk4h" path="res://assets/enemies/pixilart-sprite (1) (2).png" id="2_vdljn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpl0a"]
+atlas = ExtResource("2_vdljn")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0wx5"]
+atlas = ExtResource("2_vdljn")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg1w8"]
+atlas = ExtResource("2_vdljn")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6kqi"]
+atlas = ExtResource("2_vdljn")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47ab7"]
+atlas = ExtResource("2_vdljn")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paw16"]
+atlas = ExtResource("2_vdljn")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vdljn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpl0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0wx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg1w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6kqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47ab7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paw16")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iivvu"]
+size = Vector2(16, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c45xu"]
+size = Vector2(39, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdljn"]
+size = Vector2(16, 34)
+
+[node name="Escorpiao" type="CharacterBody2D"]
+scale = Vector2(0.72000015, 0.72000015)
+collision_layer = 4
+script = ExtResource("1_5xk86")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.2222204, 1.2222204)
+sprite_frames = SubResource("SpriteFrames_vdljn")
+
+[node name="AreaDano" type="Area2D" parent="."]
+scale = Vector2(1.2222204, 1.2222204)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_iivvu")
+
+[node name="ColisaoDano" type="CollisionShape2D" parent="AreaDano"]
+position = Vector2(-18, -1)
+shape = SubResource("RectangleShape2D_iivvu")
+
+[node name="ColisaoDano2" type="CollisionShape2D" parent="AreaDano"]
+position = Vector2(8.5, 6)
+shape = SubResource("RectangleShape2D_c45xu")
+
+[node name="ColisaoEscorpiao" type="CollisionShape2D" parent="."]
+position = Vector2(-22.166668, -1)
+scale = Vector2(1.2222204, 1.2222204)
+shape = SubResource("RectangleShape2D_vdljn")
+
+[node name="ColisaoEscorpiao2" type="CollisionShape2D" parent="."]
+position = Vector2(11.277776, 7.3888874)
+scale = Vector2(1.2222204, 1.2222204)
+shape = SubResource("RectangleShape2D_c45xu")
+
+[connection signal="body_entered" from="AreaDano" to="AreaDano" method="_on_body_entered"]

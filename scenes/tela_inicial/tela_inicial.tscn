@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbao7xulm0pyf"]
+
+[ext_resource type="Script" uid="uid://dq7eg3veu782m" path="res://scenes/tela_inicial/tela_inicial.gd" id="1_4ucpi"]
+[ext_resource type="Texture2D" uid="uid://chox5etsvtnqv" path="res://assets/title_screen/title_screen.png" id="1_m0uv1"]
+[ext_resource type="FontFile" uid="uid://djaieaje5xy0v" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="2_hityw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0uv1"]
+bg_color = Color(0.36, 0.18456002, 0.050399996, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.2048212, 0.09811353, 0.022830449, 0.6)
+shadow_size = 3
+shadow_offset = Vector2(0, 1.42)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hityw"]
+bg_color = Color(0.23, 0.11791334, 0.032199997, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.2048212, 0.09811353, 0.022830449, 0.6)
+shadow_size = 3
+shadow_offset = Vector2(0, 1.42)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ucpi"]
+bg_color = Color(0.31, 0.15892668, 0.043399997, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.2048212, 0.09811353, 0.022830449, 0.6)
+shadow_size = 3
+shadow_offset = Vector2(0, 1.42)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hityw"]
+
+[node name="TelaInicial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ucpi")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_m0uv1")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.625
+offset_top = -92.0625
+offset_right = 111.625
+offset_bottom = 92.0625
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.73333335, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8000001, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85800004, 0.29000002, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.85800004, 0.29000002, 1)
+theme_override_fonts/font = ExtResource("2_hityw")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_m0uv1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hityw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4ucpi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hityw")
+text = "START"
+
+[node name="credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.73333335, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8000001, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85800004, 0.29000002, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.85800004, 0.29000002, 1)
+theme_override_fonts/font = ExtResource("2_hityw")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_m0uv1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hityw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4ucpi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hityw")
+text = "CREDITS"
+
+[node name="quit_game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 0.73333335, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.8000001, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85800004, 0.29000002, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.85800004, 0.29000002, 1)
+theme_override_fonts/font = ExtResource("2_hityw")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_m0uv1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hityw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4ucpi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hityw")
+text = "QUIT GAME"
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit_game" to="." method="_on_quit_game_pressed"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://yrwd83nfewxw"]
+
+[ext_resource type="Script" uid="uid://b66fhl8m17d6o" path="res://scenes/fase/zona_morte.gd" id="1_4l72h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_065bx"]
+size = Vector2(486, 20)
+
+[node name="ZonaMorte" type="Area2D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_4l72h")
+
+[node name="ColisaoMorte" type="CollisionShape2D" parent="."]
+position = Vector2(243, 10)
+shape = SubResource("RectangleShape2D_065bx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
